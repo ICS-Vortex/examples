@@ -1,0 +1,7 @@
+{% extends 'emails/base.html.twig' %}
+{% block title %}Account creation at {{ domain }}{% endblock %}
+{% block content %}
+    Dear {{ account.callsign }}, your account has been created. Now you can login. <br>
+    Login: {{ account.callsign }} <br>
+    Password: {{ account.plainPassword }} <br>
+{% endblock %}

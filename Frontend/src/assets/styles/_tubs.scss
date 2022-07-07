@@ -1,0 +1,49 @@
+//------------------------------
+//    TUBS
+//------------------------------
+.tubs__list{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.tubs__content{
+    display: none;
+    padding: 15px 0;
+}
+.tubs__button{
+    cursor: pointer;
+    transition: .3s;
+    color: #fff;
+    background: #000;
+    margin: 0 10px;
+    padding: 5px 15px;
+    &.active{
+        background: $c1;
+    }
+}
+.tubs__content-pc{
+    width: 100%;
+}
+
+@media screen and (max-width: 991px){
+    .tubs__content-pc{
+        display: none;
+    }
+    .tubs__list{
+        flex-wrap: wrap;
+    }
+    .tubs__item{
+        width: 100%;
+        margin: 0;
+    }
+    .tubs__button{
+        margin: 0 0 2px;
+    }
+    .tubs__button.active + .tubs__content{
+        display: block;
+    }    
+}

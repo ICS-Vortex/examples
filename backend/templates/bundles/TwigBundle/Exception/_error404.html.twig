@@ -1,0 +1,197 @@
+{#{% set randomBackground = random(21) %}#}
+{#{% set links = linksService.getLinks() %}#}
+{#{% set appTitleOption = settingsService.getOption('setting_application_title') %}#}
+{#{% set title = '' %}#}
+{#{% if appTitleOption is not empty %}{% set title = appTitleOption.getValue() %}{% endif %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="{{ app.request.get('_locale') }}">#}
+{#<head>#}
+{#    <title>{% block title %}{% endblock %} | {{ title }}</title>#}
+{#    <meta charset="utf-8">#}
+{#    <meta http-equiv="X-UA-Compatible" content="IE=Edge">#}
+{#    <meta name="description" content="{% block metaDescription %}{% endblock %}"/>#}
+{#    <meta name="keywords" content="{% block metaKeywords %}{% endblock %}">#}
+{#    <meta name="author" content="{{ title }}"/>#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
+{#    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico"/>#}
+{#    <link href="/libraries/c3/c3.min.css" rel="stylesheet" type="text/css"  />#}
+{#    <link href="/libraries/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />#}
+{#    <link rel="stylesheet" href="/libraries/bootstrap-select/dist/css/bootstrap-select.min.css">#}
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css">#}
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>#}
+{#    <link rel="stylesheet" href="/libraries/flag-icon-css/css/flag-icon.min.css"/>#}
+{#    <link rel="stylesheet" href="/libraries/lightbox2/dist/css/lightbox.min.css"/>#}
+{#    <link rel="stylesheet" href="/libraries/animate.css/animate.min.css"/>#}
+{#    <link rel="stylesheet" href="/libraries/gritter/css/jquery.gritter.css"/>#}
+{#    <link rel="stylesheet" href="/libraries/node-snackbar/dist/snackbar.min.css"/>#}
+{#    <link rel="stylesheet" href="/libraries/lightslider/src/css/lightslider.css"/>#}
+{#    <link href="/css/icons.css" rel="stylesheet" type="text/css" />#}
+{#    <link href="/css/style.css" rel="stylesheet" type="text/css" />#}
+{#    <link href="/css/custom.css" rel="stylesheet" type="text/css" />#}
+{#    <script src="/js/modernizr.min.js"></script>#}
+{#    {% block cssPage %}{% endblock %}#}
+{#</head>#}
+
+
+{#<body>#}
+
+{#<header id="topnav">#}
+{#    <div class="topbar-main Navbar m-b-0 b-0">#}
+{#        <div class="container-fluid">#}
+{#            <div class="topbar-left">#}
+{#                <a href="#" class="logo">#}
+{#                    <img src="/images/logo.png" alt="{{ title }}" height="40"> <span class="text-white-50 fs">{{ title }}</span>#}
+{#                </a>#}
+{#            </div>#}
+{#            <div class="menu-extras">#}
+{#                <ul class="nav Navbar-right list-inline">#}
+{#                    {% if app.user is not empty %}#}
+{#                        <li class="dropdown user-box list-inline-item pointer">#}
+{#                            <a href="#" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown" aria-expanded="true">#}
+{#                                <img src="/images/logo.png" height="40" alt="user-img" class="rounded-circle user-img">#}
+{#                            </a>#}
+{#                            <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">#}
+{#                                <li><a href="javascript:void(0)" class="dropdown-item">Profile</a></li>#}
+{#                                <li><a href="javascript:void(0)" class="dropdown-item">Logout</a></li>#}
+{#                            </ul>#}
+{#                        </li>#}
+
+{#                    {% else %}#}
+
+{#                    {% endif %}#}
+
+{#                </ul>#}
+{#                <div class="menu-item">#}
+{#                    <a class="Navbar-toggle">#}
+{#                        <div class="lines">#}
+{#                            <span></span>#}
+{#                            <span></span>#}
+{#                            <span></span>#}
+{#                        </div>#}
+{#                    </a>#}
+{#                </div>#}
+{#            </div>#}
+
+{#        </div>#}
+{#    </div>#}
+
+{#    <div class="Navbar-custom">#}
+{#        <div class="container-fluid">#}
+{#            <div id="navigation">#}
+{#                {{ knp_menu_render('main', {'currentClass': 'has-submenu active','template':'menu.html.twig'}) }}#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</header>#}
+
+{#<div class="wrapper" style="{% block background %}{% endblock %}">#}
+{#    <div class="container">#}
+{#        <div class="row">#}
+{#            <div class="col-sm-12">#}
+{#                <div class="page-title-box">#}
+{#                    <h1 class="page-title m-0">{% block contentHeader %}{% endblock %}</h1>#}
+{#                </div>#}
+
+{#            </div>#}
+{#        </div>#}
+{#        {% block content %}#}
+{#            <div class="row">#}
+{#                <div class="col-sm-12">#}
+{#                    <div class="wrapper-page text-center">#}
+{#                        <img src="/images/icons/high_priority.svg" alt="high_priority.svg" height="60">#}
+{#                        <h2 class="text-uppercase text-primary m-t-50">Page Not Found</h2>#}
+{#                        <p class="text-muted m-t-30">It's looking like you may have taken a wrong turn. Don't worry... it#}
+{#                            happens to the best of us. You might want to check your internet connection. Here's a#}
+{#                            little tip that might help you get back on track.</p>#}
+{#                    </div>#}
+
+{#                </div><!-- end col -->#}
+{#            </div>#}
+{#        {% endblock %}#}
+{#    </div>#}
+
+{#    <footer class="footer">#}
+{#        <div class="container-fluid">#}
+{#            <div class="row">#}
+{#                <div class="col-md-6">#}
+{#                    <div class="copyright pull-none">#}
+{#                        {{ 'now'|date('Y') }} © {% if appTitleOption is not empty %}{{ appTitleOption.getValue() }}{% endif %}#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-6">#}
+{#                    <ul class="float-right list-inline m-b-0 pull-none">#}
+{#                        <li class="list-inline-item">#}
+{#                            <a href="#">About</a>#}
+{#                        </li>#}
+{#                        <li class="list-inline-item">#}
+{#                            <a href="#">Help</a>#}
+{#                        </li>#}
+{#                        <li class="list-inline-item">#}
+{#                            <a href="#">Contact</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </footer>#}
+
+{#</div>#}
+
+{#<script src="/libraries/jquery/dist/jquery.min.js"></script>#}
+{#<script src="/libraries/bootstrap/dist/js/bootstrap.min.js"></script>#}
+{#<script src="/js/waves.js"></script>#}
+{#<script src="/libraries/jquery-slimscroll/jquery.slimscroll.min.js"></script>#}
+{#<script src="/libraries/waypoints/lib/jquery.waypoints.min.js"></script>#}
+{#<script src="/libraries/counterup/jquery.counterup.min.js"></script>#}
+{#<script src="/libraries/d3/dist/d3.min.js"></script>#}
+{#<script src="/libraries/c3/c3.min.js"></script>#}
+{#<script src="/libraries/bootstrap-select/dist/js/bootstrap-select.min.js"></script>#}
+{#<script type="text/javascript" src="/bundles/fosjsrouting/js/router.js"></script>#}
+{#<script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>#}
+{#{% include 'routing.html.twig' %}#}
+{#<script src="/libraries/gritter/js/jquery.gritter.min.js"></script>#}
+{#<script src="/libraries/node-snackbar/dist/snackbar.min.js"></script>#}
+{#<script src="/libraries/jquery-slimscroll/jquery.slimscroll.min.js"></script>#}
+{#<script src="/libraries/lightslider/src/js/lightslider.js"></script>#}
+{#<script src="/libraries/jquery-slimscroll/jquery.slimscroll.min.js"></script>#}
+{#<script src="/libraries/moment/moment.js"></script>#}
+{#<script src="/libraries/lightbox2/dist/js/lightbox.min.js"></script>#}
+{#<script src="/js/pages/jquery.dashboard.js"></script>#}
+{#<script src="/js/jquery.core.js"></script>#}
+{#<script src="/js/jquery.app.js"></script>#}
+{#<script>#}
+{#    $(document).ready(function () {#}
+{#        $('.events-body').slimScroll({#}
+{#            height: '300px'#}
+{#        });#}
+{#        $("#light-slider").lightSlider({#}
+{#            item: 4,#}
+{#            pager: false,#}
+{#            adaptiveHeight:true,#}
+{#            verticalHeight:200,#}
+{#            gallery: true,#}
+{#            responsive : [#}
+{#                {#}
+{#                    breakpoint:800,#}
+{#                    settings: {#}
+{#                        item:3,#}
+{#                        slideMove:1,#}
+{#                        slideMargin:6,#}
+{#                    }#}
+{#                },#}
+{#                {#}
+{#                    breakpoint:480,#}
+{#                    settings: {#}
+{#                        item:2,#}
+{#                        slideMove:1#}
+{#                    }#}
+{#                }#}
+{#            ]#}
+{#        });#}
+
+{#    });#}
+{#</script>#}
+{#{% block javascriptsPage %}{% endblock %}#}
+{#</body>#}
+
+{#</html>#}

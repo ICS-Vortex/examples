@@ -1,0 +1,49 @@
+.pop__title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-bottom: 25px;
+    font-size: 30px;
+}
+
+.success.fancybox-content {
+    text-align: center;
+    background: #90ff90;
+
+    .success__icon {
+        background: url(../images/icon/success.svg) center 0 no-repeat;
+        background-size: 90px 90px;
+        width: 90px;
+        height: 90px;
+        margin: 0 auto;
+    }
+
+    .success__title {
+        padding-top: 20px;
+        font-weight: 600;
+        font-size: 30px;
+        color: #039f03;
+        padding-bottom: 15px;
+        line-height: 1.1;
+    }
+
+    .success__desc {
+        color: #039f03;
+        font-size: 16px;
+        padding: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

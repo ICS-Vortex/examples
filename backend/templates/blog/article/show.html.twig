@@ -1,0 +1,184 @@
+{% extends 'base.html.twig' %}
+
+{% set prevArticle = articlesService.getArticleId(article, true) %}
+{% set nextArticle = articlesService.getArticleId(article, false) %}
+
+{% block content %}
+    <div class="ritekhela-subheader">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    {% if prevArticle is not empty%}
+                        <a class="ritekhela-shop-btn ritekhela-bgcolor ritekhela-color-two float-left" href="{{ path('blog.article.show', {article: prevArticle}) }}">
+                            <span class="fa fa-chevron-circle-left"></span>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="col-md-8 text-center">
+                    <h1>{{ app.request.locale == 'ru' ? article.title : article.titleEn }}</h1>
+                </div>
+                <div class="col-md-2">
+                    {% if nextArticle is not empty%}
+                        <a class="ritekhela-shop-btn ritekhela-bgcolor ritekhela-color-two float-right" href="{{ path('blog.article.show', {article: nextArticle}) }}">
+                            <span class="fa fa-chevron-circle-right"></span>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ritekhela-main-content">
+        <div class="ritekhela-main-section ritekhela-fixture-list-full">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <figure class="ritekhela-fixture-detail">
+                            <img src="{{ articlesFolder }}/{{ article.image }}" alt="{{ app.request.locale == 'ru' ? article.title : article.titleEn }}">
+                            <ul class="ritekhela-blog-options">
+                                <li><i class="far fa-calendar-alt"></i> {{ article.createdAt|date('M d, Y') }}</li>
+                                <li><a href="#"><i class="far fa-eye"></i> {{ article.views }} {{ 'label.views'|trans }}</a></li>
+                            </ul>
+                        </figure>
+                        <div class="ritekhela-editor-detail">
+                            <h2>{{ app.request.locale == 'ru' ? article.title : article.titleEn }}</h2>
+                            <div class="mb-4">
+                                {{ app.request.locale == 'ru' ? article.ru|raw : article.en|raw }}
+                            </div>
+                            <div class="ritekhela-tags">
+                                <span><i class="fa fa-tags"></i> Tags</span>
+                                {% set tags = app.request.locale == 'ru' ? article.tags|split(',') : article.tagsEn|split(',') %}
+                                {% for tag in tags %}
+                                    <a href="#">{{ tag|trim }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        {% if article.comments.count > 0 %}
+                            <div class="ritekhela-fancy-title-two">
+                                <h2>{{ article.comments.count }} {{ 'label.comments'|trans }}</h2>
+                            </div>
+                            <div id="ritekhela-comments">
+                                <ul>
+                                    {% for comment in article.comments %}
+                                        <li>
+                                            <div class="thumblist">
+                                                <ul>
+                                                    <li>
+                                                        <figure>
+                                                            <a href="#"><img src="{{ asset('images/helmet_b.png') }}" alt="{{ comment.author }}"></a>
+                                                        </figure>
+                                                        <div class="ritekhela-text">
+                                                            <a href="#">{{comment.author}}</a>
+                                                            <time datetime="{{ comment.createdAt|date('Y-m-d H:i:s') }}"><i class="fa fa-clock-o"></i> {{ comment.createdAt|date('d M Y, H:m') }}</time>
+                                                            <p>{{comment.comment}}</p>
+                                                            {% if app.user %}
+                                                                <a href="#" class="comment-button"><i class="fa fa-thumbs-up"></i> {{ comment.likes }} {{ 'button.like'|trans }}</a>
+                                                                <a href="#" class="comment-button"><i class="fa fa-thumbs-down"></i> {{ comment.likes }} {{ 'button.dislike'|trans }}</a>
+                                                            {% endif %}
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                        {% endif %}
+                        <div class="ritekhela-fancy-title-two">
+                            <h2>{{ 'label.leave_reply'|trans }}</h2>
+                        </div>
+                        <script src="https://www.google.com/recaptcha/api.js?render=6LfWE8oUAAAAAOhdGVoLOBk3-xEF7_td1c7FxtmF"></script>
+
+                        <div class="ritekhela-form">
+                            {% form_theme commentForm '_layout/forms/theme_layout.html.twig' %}
+
+                            {{ form_start(commentForm) }}
+                            {{ form_row(commentForm.author) }}
+                            {{ form_row(commentForm.email) }}
+                            {{ form_row(commentForm.phone) }}
+                            {{ form_row(commentForm.comment) }}
+                            <input type="hidden" id="g-recaptacha-response" name="g-recaptacha-response">
+                            <p>
+                                <input type="submit" class="ritekhela-bgcolor" value="{{ 'button.add.comment'|trans }}">
+                            </p>
+                            {{ form_end(commentForm) }}
+                        </div>
+
+                    </div>
+                    <aside class="col-md-4">
+                        <div class="widget widget_categories">
+                            <div class="ritekhela-fancy-title-two">
+                                <h2>{{ 'label.categories'|trans }}</h2>
+                            </div>
+                            <ul>
+                                {% for category in categories %}
+                                    <li><a href="#">{{ app.request.locale == 'ru' ? category.title : category.titleEn}}</a> {{ category.articles.count }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="widget widget_social_media">
+                            <div class="ritekhela-fancy-title-two">
+                                <h2>Social Media</h2>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="#" class="rss">
+                                        <i class="fa fa-rss"></i>
+                                        <span>2,035</span>
+                                        <small>Subscribers</small>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fb">
+                                        <i class="fab fa-facebook-f"></i>
+                                        <span>3,794</span>
+                                        <small>Fans</small>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="g_plus">
+                                        <i class="fab fa-google-plus-g"></i>
+                                        <span>941</span>
+                                        <small>Followers</small>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="you_tube">
+                                        <i class="fab fa-youtube"></i>
+                                        <span>7,820</span>
+                                        <small>Subscribers</small>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="twitter">
+                                        <i class="fab fa-twitter"></i>
+                                        <span>1,562</span>
+                                        <small>Followers</small>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="pint">
+                                        <i class="fab fa-pinterest-p"></i>
+                                        <span>1,310</span>
+                                        <small>Followers</small>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascriptsPage %}
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfWE8oUAAAAAOhdGVoLOBk3-xEF7_td1c7FxtmF"></script>
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LfWE8oUAAAAAOhdGVoLOBk3-xEF7_td1c7FxtmF', {action: 'homepage'}).then(function(token) {
+                document.getElementById('g-recaptacha-response').value = token;
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% set randomBackground = random(21) %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ 'label.signin'|trans }} | {{ title }}</title>
+    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/dist/css/bootstrap.min.css') }}" />
+    <link href="{{ asset('plugins/@fortawesome/fontawesome-free/css/all.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('plugins/animate.css/animate.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/custom.css') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.png') }}"/>
+</head>
+<body class="bg"
+      style="background-image: url('/images/backgrounds/{{ randomBackground }}.png');background-repeat: no-repeat;background-position: center;  background-size: cover;">
+
+<div class="text-center animated fadeInDown cover w-100 h-100">
+    <div class="middle-box">
+        <div class="card mt-5">
+            <div class="card-body">
+                <img class="w-100" src="{{ asset('images/logo_b.png') }}" alt="{{ title }}">
+                <form class="m-t" role="form" method="post" action="{{ path('system.login.check') }}">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="_username" class="form-control"
+                               value="{{ lastUsername }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="_password" class="form-control" required>
+                    </div>
+                    <button type="submit"
+                            class="btn btn-primary block full-width m-b">{{ 'label.signin'|trans }}</button>
+                </form>
+                {% if error %}
+                    <div class="bg-danger p-xs b-r-sm">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+                <p class="m-t"> <small class="text-white">{{ title }} &copy; {{ 'now'|date('Y') }}</small> </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="{{ asset('plugins/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('plugins/popper.js/dist/umd/popper.min.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+</body>
+</html>

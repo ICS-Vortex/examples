@@ -1,0 +1,128 @@
+@media (hover: hover) {}
+
+
+@media screen and (max-width: 1200px) {}
+
+@media (hover: hover) {}
+
+
+
+@media screen and (min-width: 1920px) {}
+
+
+
+@media screen and (max-width: 1200px) {}
+
+@media screen and (max-width: 999px) {}
+
+@media screen and (max-width: 767px) {}
+
+@media screen and (max-width: 560px) {}
+
+@media screen and (max-width: 360px) {}
+
+
+
+
+@media screen and (max-width: 991px) {}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) {}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 580px) {}
+
+
+
+
+
+@media screen and (max-width: 991px) {
+    body.pop-active-fixed {
+        margin-right: 0;
+    }
+
+    // MOBILE MENU START
+    .header__nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 999;
+        background: #fff;
+        padding: 0;
+        margin: 0;
+        transform: translateX(-100%);
+        transition: .3s;
+
+        ul {
+            display: block;
+            padding: 0 20px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: calc(100% - 50px);
+        }
+    }
+
+    .header__nav.active {
+        transform: translateX(0);
+    }
+
+    .nav-title-mobile {
+        display: flex;
+    }
+
+    .icon-menu {
+        display: block;
+    }
+
+    .icon-menu.active {
+
+        .sw-topper,
+        .sw-bottom,
+        .sw-footer {
+            background: #fff;
+        }
+    }
+
+    // MOBILE MENU FINISH    
+
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) {}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 580px) {}

@@ -1,0 +1,46 @@
+{% extends 'emails/base.html.twig' %}
+{% block emailTitle %}Shadow’s Trophy Qualification Coupon{% endblock %}
+{% block emailBody %}
+    Hello, {{ username }}! <br>
+    You received this message because you finished the race track on
+    VPC Helicopter Race Server and have a right to take a <b
+    style="color: red;">5%</b> discound code for VIRPIL Controls webstore. <br><br>
+
+    To receive this coupon, please click on link below: <br><br>
+
+    <a style="color: red;" href="{{ scheme }}://{{ frontendHost }}/login">Virpil Servers</a> <br><br>
+
+    For authentication you may need your DCS World identification code - UCID: <br>
+
+    <h3 style="color:red">{{ ucid }}</h3>
+
+    After this you will be sent to virpil-servers.com, where you’ll need to select VIRPIL Controls webstore according to your location* to get coupon:
+    <br> <br>
+
+    <b>EAEU**</b> <br>
+    <b>Worldwide</b> <br> <br>
+
+    *Please note: Coupons are not transferable from one shop to another. <br>
+    **EAEU Webstore is available at following countries: <br> <br>
+
+    **EAEU Webstore is available at following countries: <br>
+    <span style="color: red;">★</span> Republic of Belarus <br>
+    <span style="color: red;">★</span> Russian Federation <br>
+    <span style="color: red;">★</span> Republic of Kazakhstan <br>
+    <span style="color: red;">★</span> Kyrgyz Republic <br>
+    <span style="color: red;">★</span> Republic of Tajikistan  <br> <br>
+
+    After that, you can edit your profile and continue participation in Shadow’s Trophy <br>
+    Tournament Qualification and compete for a great Prize Fund which is up to <b style="color: red;">6000€!</b> <br>
+    <br>
+
+    All additional information about Tournament, such as Regulations, Prize Fund, F.A.Q. and <br>
+    much more, you can find on official Shadow’s Trophy Tournament page on VIRPIL Controls Community Servers: <br> <br>
+
+    <a style="color: red;"
+       href="{{ scheme }}://{{ frontendHost }}/tournament/{{ tournamentId }}/home">{{ tournamentTitle }}</a> <br> <br>
+
+    Have a great flights, <br>
+    Shadow's Trophy Tournament Team!
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'emails/registration/base.html.twig' %}
+{% block emailTitle %}Confirm registration{% endblock %}
+{% block emailBody %}
+    <h3>Thanks for signing up. In order to get access to your flight data we need you to confirm your registration.</h3>
+    <p>
+        <a href="{{ scheme }}://{{ frontendHost }}/confirm/{{ token }}" class="btn btn-primary">YES! Confirm registration</a>
+        <a href="{{ scheme }}://{{ frontendHost }}/decline/{{ token }}" class="btn btn-danger" style="margin-left: 10px;">NO! Decline registration</a>
+    </p>
+    <p></p>
+{% endblock %}

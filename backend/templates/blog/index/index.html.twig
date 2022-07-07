@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="ritekhela-subheader">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{{ 'label.blog'|trans }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ritekhela-main-content">
+        <div class="ritekhela-main-section ritekhela-fixture-list-full">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ritekhela-blogs ritekhela-blog-view4">
+                            <ul class="row">
+                                {% for article in articles %}
+                                    <li class="col-md-12">
+                                        <figure>
+                                            <a href="{{path('blog.article.show', {article: article.id})}}">
+                                                <img src="{{ articlesFolder }}/{{ article.image }}" alt="{{ app.request.locale == 'ru' ? article.title : article.titleEn }}">
+                                                <i class="fa fa-link"></i>
+                                            </a>
+                                        </figure>
+                                        <ul class="ritekhela-blog-options">
+                                            <li><i class="far fa-calendar-alt"></i> {{ article.createdAt|date('M d, Y') }}</li>
+                                            <li><a href="#"><i class="far fa-comment"></i>{{ article.comments.count }} {{ 'label.comments'|trans }}</a></li>
+                                            <li><a href="#"><i class="fa fa-eye"></i>{{ article.views }} {{ 'label.views'|trans }} </li>
+                                        </ul>
+                                        <div class="ritekhela-blog-view4-text">
+                                            <h2>
+                                                <a href="{{path('blog.article.show', {article: article.id})}}">
+                                                    {{ app.request.locale == 'ru' ? article.title : article.titleEn }}
+                                                </a>
+                                            </h2>
+                                            <p>{{ app.request.locale == 'ru' ? article.description : article.descriptionEn }}</p>
+                                            <a href="{{path('blog.article.show', {article: article.id})}}" class="ritekhela-blog-view4-btn">
+                                                {{ 'button.read_more'|trans }}
+                                            </a>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <!--// Blog //-->
+                        <!--// Pagination //-->
+                        <div class="ritekhela-pagination">
+                            {{ knp_pagination_render(articles) }}
+                        </div>
+                        <!--// Pagination //-->
+                    </div>
+                    <!--// Full Section //-->
+
+                </div>
+            </div>
+        </div>
+        <!--// Main Section //-->
+
+    </div>
+{% endblock %}

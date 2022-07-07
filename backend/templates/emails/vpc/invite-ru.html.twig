@@ -1,0 +1,45 @@
+{% extends 'emails/base.html.twig' %}
+{% block emailTitle %}Купон за квалификацию Shadow’s Trophy{% endblock %}
+{% block emailBody %}
+    Здравствуйте, {{ username }}! <br>
+    Вы получили это письмо, так как завершили трассу на сервере VPC Helicopter Race Server и имеете право на получение
+    <br>
+    скидки в <b style="color:red;">5%</b> для магазина VIRPIL Controls. <br><br>
+
+    Чтобы получить данный купон, пожалуйста, пройдите по ссылке ниже: <br><br>
+
+    <a style="color: red;" href="{{ scheme }}://{{ frontendHost }}/login">Virpil Servers</a> <br><br>
+
+    Для авторизации Вам может понадобиться ваш идентификационный код DCS World - UCID: <br>
+
+    <h3 style="color:red">{{ ucid }}</h3>
+
+    После прохождения по ссылке, пожалуйста, укажите какой магазин VIRPIL Controls работает в Вашем регионе*:<br> <br>
+
+    <b>ЕАЭС**</b> <br>
+    <b>Остальной мир</b> <br> <br>
+
+    *Обратите внимание: купон будет действовать только в указанном магазине и будет выслан на указанный адрес <br>
+    электронной почты в течение суток. <br> <br>
+
+    **Магазин ЕАЭС работает в следующих странах: <br>
+    <span style="color: red;">★</span> Республика Беларусь <br>
+    <span style="color: red;">★</span> Российская Федерация <br>
+    <span style="color: red;">★</span> Республика Казахстан <br>
+    <span style="color: red;">★</span> Киргизская Республика <br>
+    <span style="color: red;">★</span> Республика Таджикистан <br> <br>
+
+    Далее, вы можете заполнить свой профиль и продолжить участие в Квалификации Турнира “Shadow’s Trophy” и <br>
+    побороться за другие награды из Призового Фонда, размер которого достигает <b style="color:red;">6000€</b>. <br>
+    <br>
+
+    Подробности о мероприятии, правилах участия, призах, а также ознакомиться с другой необходимой информацией, <br>
+    мы можете на странице Турнира на сайте VIRPIL Controls Community Servers: <br> <br>
+
+    <a style="color: red;"
+       href="{{ scheme }}://{{ frontendHost }}/tournament/{{ tournamentId }}/home">{{ tournamentTitle }}</a> <br> <br>
+
+    Удачных полетов, <br>
+    Команда Shadow's Trophy!
+
+{% endblock %}

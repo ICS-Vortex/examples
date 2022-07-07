@@ -1,0 +1,7 @@
+{% extends 'emails/base.html.twig' %}
+{% block emailTitle %}New account{% endblock %}
+{% block emailBody %}
+    Your account has been created. Now you can login. <br>
+    Login: {{ login }} <br>
+    Password: {{ password }} <br>
+{% endblock %}

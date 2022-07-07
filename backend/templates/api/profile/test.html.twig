@@ -1,0 +1,126 @@
+<form name="ucid_profile" method="post" enctype="multipart/form-data">
+    <form name="ucid_profile" method="post" enctype="multipart/form-data">
+        <div id="ucid_profile">
+            <div class="invalid-feedback d-block">This value is not valid.</div>
+            <div class="mb-3"><label for="ucid_profile_name" class="form-label required">Name</label><input type="text"
+                                                                                                            id="ucid_profile_name"
+                                                                                                            name="ucid_profile[name]"
+                                                                                                            required="required"
+                                                                                                            class="form-control"
+                                                                                                            value="Владик"/>
+            </div>
+            <div class="mb-3"><label for="ucid_profile_surname" class="form-label required">Surname</label><input
+                    type="text" id="ucid_profile_surname" name="ucid_profile[surname]" required="required"
+                    class="form-control" value="Жмурик"/></div>
+            <div class="mb-3"><label for="ucid_profile_country" class="form-label required">Country</label><input
+                    type="text" id="ucid_profile_country" name="ucid_profile[country]" required="required"
+                    class="form-control" value="ru"/></div>
+            <div class="mb-3"><label for="ucid_profile_language" class="form-label required">Language</label><input
+                    type="text" id="ucid_profile_language" name="ucid_profile[language]" required="required"
+                    class="form-control" value="us"/></div>
+            <fieldset class="mb-3">
+                <legend class="col-form-label required">Birthday</legend>
+                <div id="ucid_profile_birthday">
+                    <div class="visually-hidden"><label class="form-label required" for="ucid_profile_birthday_year">Year</label><label
+                            class="form-label required" for="ucid_profile_birthday_month">Month</label><label
+                            class="form-label required" for="ucid_profile_birthday_day">Day</label></div>
+                    <div class="input-group"><select id="ucid_profile_birthday_month"
+                                                     name="ucid_profile[birthday][month]" class="form-select">
+                            <option value="1">Jan</option>
+                            <option value="2">Feb</option>
+                            <option value="3">Mar</option>
+                            <option value="4">Apr</option>
+                            <option value="5">May</option>
+                            <option value="6">Jun</option>
+                            <option value="7">Jul</option>
+                            <option value="8">Aug</option>
+                            <option value="9">Sep</option>
+                            <option value="10" selected="selected">Oct</option>
+                            <option value="11">Nov</option>
+                            <option value="12">Dec</option>
+                        </select><select id="ucid_profile_birthday_day" name="ucid_profile[birthday][day]"
+                                         class="form-select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26" selected="selected">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select><select id="ucid_profile_birthday_year" name="ucid_profile[birthday][year]"
+                                         class="form-select">
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021" selected="selected">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                        </select></div>
+                </div>
+            </fieldset>
+            <fieldset class="mb-3">
+                <legend class="col-form-label required">Photo file</legend>
+                <div class="vich-image"><input type="file" id="ucid_profile_photoFile_file"
+                                               name="ucid_profile[photoFile][file]" required="required"
+                                               class="form-control"/></div>
+            </fieldset>
+            <div class="mb-3"><label for="ucid_profile_squad" class="form-label required">Squad</label><input
+                    type="text" id="ucid_profile_squad" name="ucid_profile[squad]" required="required"
+                    class="form-control" value="=VFA Blue Angels="/></div>
+            <fieldset class="mb-3">
+                <legend class="col-form-label required">Squad logo file</legend>
+                <div class="vich-image"><input type="file" id="ucid_profile_squadLogoFile_file"
+                                               name="ucid_profile[squadLogoFile][file]" required="required"
+                                               class="form-control"/></div>
+            </fieldset>
+            <div class="mb-3"><label for="ucid_profile_about" class="form-label required">About</label><textarea
+                    id="ucid_profile_about" name="ucid_profile[about]" required="required"
+                    class="form-control"></textarea></div>
+            <div class="mb-3"><label for="ucid_profile_twitchChannelUrl" class="form-label required">Twitch channel
+                    url</label><input type="text" id="ucid_profile_twitchChannelUrl"
+                                      name="ucid_profile[twitchChannelUrl]" required="required" inputmode="url"
+                                      class="form-control"/></div>
+            <div class="mb-3"><label for="ucid_profile_youtubeChannelUrl" class="form-label required">Youtube channel
+                    url</label><input type="text" id="ucid_profile_youtubeChannelUrl"
+                                      name="ucid_profile[youtubeChannelUrl]" required="required" inputmode="url"
+                                      class="form-control"/></div>
+            <div class="mb-3"><label for="ucid_profile_vkProfileUrl" class="form-label required">Vk profile
+                    url</label><input type="text" id="ucid_profile_vkProfileUrl" name="ucid_profile[vkProfileUrl]"
+                                      required="required" inputmode="url" class="form-control"/></div>
+            <div class="mb-3">
+                <button type="submit" id="ucid_profile_submit" name="ucid_profile[submit]" class="btn-primary btn">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </form>
+</form>

@@ -1,0 +1,15 @@
+{% extends '_layout/menu/knp_menu.html.twig' %}
+
+{% block label %}
+    {%- set translation_domain = item.extra('translation_domain', 'messages') -%}
+    {%- set label = item.label -%}
+    {%- set icon = item.attribute('icon') -%}
+    <i class="link-icon icon-{{ icon }}"></i>
+    <span class="menu-title">{{ label|trans }}</span>
+{% endblock %}
+
+{% block nolabel %}
+    {%- set translation_domain = item.extra('translation_domain', 'messages') -%}
+    {%- set label = item.label -%}
+    {{ label|trans }}
+{% endblock %}

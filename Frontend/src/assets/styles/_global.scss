@@ -1,0 +1,117 @@
+$c1: #1679C4;
+$c2: red;
+
+$ff: 'Inter';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul li {
+    list-style: none;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    header,
+    main,
+    footer {
+        display: block;
+        width: 100%;
+    }
+
+}
+
+body {
+    background: #1f1f2c;
+    font-size: 1.6rem;
+
+    @media screen and (max-width:660px) {
+        font-size: 14px;
+    }
+}
+
+footer {
+    margin-top: auto;
+}
+
+main {
+    flex-grow: 1;
+}
+
+html {
+    text-size-adjust: none;
+    font-family: $ff, sans-serif;
+    font-weight: normal;
+    font-size: 10px;
+    color: #fff;
+
+    @media screen and (max-width: 1550px) {
+        font-size: 9px;
+    }
+
+    @media screen and (max-width: 1300px) {
+        font-size: 8px;
+    }
+}
+
+select,
+button,
+input,
+textarea {
+    font-family: $ff, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    transition: .3s;
+    color: #fff;
+    outline: 0;
+}
+
+.a {
+    content: '';
+    display: block;
+}
+
+.content {
+    max-width: 158rem;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media screen and (max-width: 999px) {
+        max-width: 768px;
+    }
+}
+
+.title {
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 3.6rem;
+  margin-bottom: 3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

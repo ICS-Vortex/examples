@@ -1,0 +1,7 @@
+{% extends 'emails/base.html.twig' %}
+{% block emailTitle %}Confirm registration at <a href="https://vfpteam.com">VFP Team</a>{% endblock %}
+{% block emailBody %}
+    <h2>Thanks for signing up</h2>
+    <p>Please <a href="https://vfpteam.com/confirm/{{ license }}">confirm</a> your email address to get full access to
+        your account.</p>
+{% endblock %}
